@@ -1,1 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7f4">
+  <meta name="description" content="CampusFix makes it easy to report and track campus issues.">
+  <title>CampusFix | Campus issue tracker</title>
+  <link rel="stylesheet" href="style.css?v=showcase-3">
+  <link rel="stylesheet" href="login.css?v=3">
+  <link rel="stylesheet" href="support.css?v=1">
+</head>
+<body>
+  <section class="login-screen" id="login-screen" aria-labelledby="login-title">
+    <a class="login-brand" href="#"><span class="brand-icon">C<span>+</span></span><span>CampusFix<small>NIT ARUNACHAL PRADESH</small></span></a>
+    <div class="login-card">
+      <span class="eyebrow">CAMPUS ISSUE REPORTING</span>
+      <h1 id="login-title">Welcome back</h1>
+      <p class="login-intro" id="login-intro">Sign in to report campus issues or manage the complaint queue.</p>
+      <div class="auth-mode" aria-label="Choose an account option"><button type="button" class="auth-mode-button active" data-auth-mode="login">Sign in</button><button type="button" class="auth-mode-button" data-auth-mode="signup">Create account</button></div>
+      <div class="auth-roles" aria-label="Select account type"><button type="button" class="auth-role active" data-auth-role="student">Student</button><button type="button" class="auth-role" data-auth-role="admin">Administrator</button></div>
+      <form id="auth-form">
+        <div id="auth-name-wrap" class="hidden"><label for="auth-name">Your name</label><input id="auth-name" type="text" autocomplete="name" maxlength="70"></div>
+        <label for="auth-email">Campus email</label><input id="auth-email" type="email" autocomplete="username" required>
+        <label for="auth-password">Password</label><input id="auth-password" type="password" autocomplete="current-password" required>
+        <div id="auth-confirm-wrap" class="hidden"><label for="auth-confirm">Confirm password</label><input id="auth-confirm" type="password" autocomplete="new-password"></div>
+        <p class="auth-error hidden" id="auth-error" role="alert"></p>
+        <button class="button button-primary auth-submit" id="auth-submit" type="submit">Sign in <span>→</span></button>
+      </form>
+      <div class="demo-login" id="demo-login"><strong>Demo account</strong><span id="demo-email">student@nitap.ac.in</span><span id="demo-password">Password: student123</span></div>
+    </div>
+    <p class="login-footer">A better campus starts with you <span>✦</span></p>
+  </section>
 
+  <div class="app-shell hidden" id="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#home" aria-label="CampusFix home"><span class="brand-icon">C<span>+</span></span><span>CampusFix<small>NIT ARUNACHAL PRADESH</small></span></a>
+      <div class="side-caption">DEMO WORKSPACE</div>
+      <div class="role-switch" aria-label="Choose demo view">
+        <button type="button" class="role-button active" data-role="student">Student</button>
+        <button type="button" class="role-button" data-role="admin">Administrator</button>
+      </div>
+      <nav id="main-nav" class="main-nav" aria-label="Main navigation"></nav>
+      <div class="sidebar-note"><span class="note-icon">✦</span><strong>Better campus, together</strong><p>Every report helps the campus team spot and solve issues.</p></div>
+      <div class="sidebar-foot"><span class="online-dot"></span>Demo is ready to use</div>
+    </aside>
+
+    <main class="main-area" id="home">
+      <header class="topbar"><div class="mobile-brand"><span class="brand-icon">C<span>+</span></span> CampusFix</div><div class="topbar-label">Campus issue reporting <span>•</span> Demo mode</div><div class="topbar-account"><button class="top-role" id="current-role" type="button">Student view</button><button class="signout-button" id="signout" type="button">Sign out</button></div></header>
+      <div class="content">
+        <section class="page-heading"><div><div class="eyebrow" id="page-eyebrow">YOUR CAMPUS, YOUR VOICE</div><h1 id="page-title">Welcome to CampusFix</h1><p id="page-subtitle">Report an issue and follow its progress from one place.</p></div><button class="button button-primary" id="new-report" type="button">＋ Report an issue</button></section>
+
+        <section class="stats-grid" id="stats" aria-label="Report summary"></section>
+        <section class="welcome-card" id="welcome-card"><div class="welcome-copy"><span class="welcome-label">A BETTER CAMPUS STARTS HERE</span><h2>See something?<br><em>Let’s get it fixed.</em></h2><p>Send a clear report to help the campus team take action.</p><button class="button button-dark" id="welcome-report" type="button">Create a report <span>→</span></button></div><div class="welcome-art" aria-hidden="true"><div class="art-sun"></div><div class="art-building"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><b></b></div><div class="art-hill"></div><span class="art-spark">✦</span></div></section>
+
+        <section class="report-form-card hidden" id="report-form-card" aria-labelledby="form-title"><div class="section-head"><div><span class="eyebrow">CAMPUSFIX REPORT</span><h2 id="form-title">Tell us what needs attention</h2></div><button class="icon-button" id="close-form" type="button" aria-label="Close report form">×</button></div><div class="duplicate-suggestion hidden" id="duplicate-suggestion" role="status"></div><form id="report-form"><div class="form-grid"><label>Issue title<input id="issue-title" maxlength="80" placeholder="e.g. Water cooler is leaking" required></label><label>Category<select id="issue-category" required><option value="">Choose a category</option><option>Electrical</option><option>Water & Plumbing</option><option>Wi-Fi & Internet</option><option>Classroom</option><option>Hostel</option><option>Cleanliness</option><option>Other</option></select></label><label>Location<input id="issue-location" maxlength="90" placeholder="e.g. Hostel A, ground floor" required></label><label class="full-width">Description<textarea id="issue-description" maxlength="500" rows="3" placeholder="Share a few details so the team can investigate." required></textarea></label></div><div class="form-footer"><span id="form-message" role="status"></span><button class="button button-primary" type="submit">Submit report <span>→</span></button></div></form></section>
+
+        <section class="list-section" id="list-section"><div class="list-heading"><div><span class="eyebrow" id="list-eyebrow">RECENT ACTIVITY</span><h2 id="list-title">Your reports</h2><p id="list-description">Updates on issues you have reported.</p></div><div class="list-tools"><label class="search-field"><span>⌕</span><input id="search-input" type="search" placeholder="Search reports" aria-label="Search reports"></label><select id="status-filter" aria-label="Filter reports by status"><option value="All">All statuses</option><option>Pending</option><option>In Progress</option><option>Resolved</option></select></div></div><div class="report-list" id="report-list"></div><div class="empty-state hidden" id="empty-state"><span>✓</span><h3>All clear here</h3><p>There are no reports in this view yet.</p><button class="button button-primary" id="empty-report" type="button">Report an issue</button></div></section>
+        <footer>CampusFix <span>·</span> A demo for a better campus <span class="footer-year">2026</span></footer>
+      </div>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js?v=showcase-5"></script>
+</body>
+</html>
